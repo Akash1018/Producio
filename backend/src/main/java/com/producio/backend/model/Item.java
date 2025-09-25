@@ -16,7 +16,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
-    private String desc;
+    private String description;
     private Long price;
     private String skinType;
     private String platform;

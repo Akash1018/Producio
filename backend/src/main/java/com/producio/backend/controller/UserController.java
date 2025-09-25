@@ -9,6 +9,7 @@ import com.producio.backend.model.User;
 import com.producio.backend.service.UserService;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -20,8 +21,14 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @GetMapping
+    public String getUser() {
+        return "hello";
+    }
+
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody User user) {
+        System.out.println(user);
         service.registerUser(user);
         return ResponseEntity.ok("It is working");
     }

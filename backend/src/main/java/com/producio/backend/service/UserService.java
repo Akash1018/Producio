@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.producio.backend.model.User;
@@ -14,13 +13,11 @@ import com.producio.backend.repository.UserRepository;
 public class UserService {
     @Autowired
     private UserRepository repository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
     public void registerUser(User user) {
         User newUser = new User();
         newUser.setName(user.getName());
-        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        newUser.setPassword(user.getPassword());
         newUser.setEmail(user.getEmail());
         repository.save(newUser);
     }
@@ -33,7 +30,7 @@ public class UserService {
             return false;
         }
 
-        if(passwordEncoder.matches(user.getPassword(), fetchUser.getPassword())) return true;
+        // if(passwordEncoder.matches(user.getPassword(), fetchUser.getPassword())) return true;
         return false;
     }
 

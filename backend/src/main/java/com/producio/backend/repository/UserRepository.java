@@ -9,6 +9,6 @@ import com.producio.backend.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     public User findByEmail(String email);
-    public User findByName(String username);
-    public boolean existsByUsername(String username);
+    public User findByName(String name);
+    public boolean existsByName(String name);
 }
