@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "AI Productivity Coach",
+    "version": "1.0",
+    "description": "Boost your focus with AI suggestions",
+    "permissions": [
+      "storage",
+      "notifications"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "index.html",
+    }
+  }
+  
